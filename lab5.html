@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam</title>
+    <style>
+        body {
+            background-color: #ffc0cb; /* Light Pink */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #d63384; /* Dark Pink */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .webcam-container {
+            border: 4px solid #ff69b4; /* Pink border */
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #ffe4e1; /* Lighter pink */
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        video, canvas {
+            border-radius: 8px;
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #d63384;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Webcam</h1>
+    <div class="webcam-container">
+        <video id="webcam" autoplay></video>
+        <canvas id="snapshotCanvas" class="hidden"></canvas>
+        <div class="controls">
+            <button id="snap">Take Snapshot</button>
+            <button id="startRec">Start Recording</button>
+            <button id="stopRec" class="hidden">Stop Recording</button>
+            <a id="downloadRec" class="hidden" download="recorded-video.webm">Download Recording</a>
+        </div>
+    </div>
+
+    <script>
+        let webcamStream;
+        let mediaRecorder;
+        let recordedChunks = [];
+
+        async function startWebcam() {
+            try {
+                webcamStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById("webcam").srcObject = webcamStream;
+            } catch (error) {
+                console.error("Error accessing webcam:", error);
+            }
+        }
+
+        document.getElementById("snap").addEventListener("click", () => {
+            const video = document.getElementById("webcam");
+            const canvas = document.getElementById("snapshotCanvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Create a download link
+            const snapshotLink = document.createElement("a");
+            snapshotLink.href = canvas.toDataURL("image/png");
+            snapshotLink.download = "snapshot.png";
+            snapshotLink.textContent = "Download Snapshot";
+            snapshotLink.style.display = "block";
+            document.body.appendChild(snapshotLink);
+        });
+
+        document.getElementById("startRec").addEventListener("click", () => {
+            recordedChunks = [];
+            mediaRecorder = new MediaRecorder(webcamStream, { mimeType: "video/webm" });
+
+            mediaRecorder.ondataavailable = event => {
+                if (event.data.size > 0) recordedChunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = () => {
+                const blob = new Blob(recordedChunks, { type: "video/webm" });
+                const url = URL.createObjectURL(blob);
+
+                const downloadRec = document.getElementById("downloadRec");
+                downloadRec.href = url;
+                downloadRec.classList.remove("hidden");
+            };
+
+            mediaRecorder.start();
+            document.getElementById("startRec").classList.add("hidden");
+            document.getElementById("stopRec").classList.remove("hidden");
+        });
+
+        document.getElementById("stopRec").addEventListener("click", () => {
+            mediaRecorder.stop();
+            document.getElementById("stopRec").classList.add("hidden");
+            document.getElementById("startRec").classList.remove("hidden");
+        });
+
+        startWebcam();
+    </script>
+
+</body>
+</html>
