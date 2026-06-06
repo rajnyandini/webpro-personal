@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My webpage</title>
+        <link rel="icon" type="image/jpg" href="shark.jpg">
+    <style>
+        body{
+            background-color: beige;
+        }
+
+        h1{
+            color: blueviolet;
+        }
+        .hello{
+            background-color: aquamarine;
+        }
+        #hehe{
+            color: brown;
+        }
+        #shadow{
+            text-shadow: 3px 3px 5px red,-3px -3px 5px rgb(0, 187, 255)
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 100px;
+           text-align: center;
+        }
+        .boxa{
+            width: 250px;
+            height: 250px;
+            position: relative;
+            left: 100px;
+
+        }
+
+        #box1{
+            background-color: red;
+        }
+        #box2{
+            background-color: blue;
+        }
+        .calculator {
+    margin: 50px auto;
+    width: 240px;
+    text-align: center;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+td {
+    padding: 10px;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s, transform 0.2s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.operator {
+    background-color: #ff9900;
+    color: white;
+}
+
+.equal {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Fly animation on button click */
+@keyframes fly {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px); /* Fly up */
+    }
+    100% {
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+button:active {
+    animation: fly 0.3s ease-in-out; /* Trigger fly animation */
+}
+
+    </style>
+    </head>
+    <!-- for external linking we can use link rel ='stylesheet' href="whatever.css" -->
+    <body>
+
+        <h1> BIGGEST </h1> 
+
+
+    <p> PARAGRAPH</p>
+
+<marquee> Marquee displays moving text </marquee>
+
+    <p class=" hello">
+        THE BR TAG MAKES <br> the page break
+        
+        <br>
+
+        and HR TAG DRAWS A LINE
+        <hr> good right
+    </p>
+
+
+
+
+    <pre id="hehe" class="hello"> class tag in css
+        is used 
+        to group elements and apply css by .namewhatever 
+        PRE is preformatted    text   which
+        prints   excat ly how  i wrote 
+        in
+      the editor hehe
+    </pre>
+
+
+    <!-- THIS IS A COMMENT-->
+
+
+
+    <a href="https://www.google.com/" target="_blank" title="IF i click on title it just shows what hovers, under a tag ofc">
+        I HAVE MADE A LINK by using href which is hypertext referencce
+    <br> if i add target="_blank" it means that the link opens in new tabs</a>
+
+<hr> <br>
+
+    <a href="ex31.html" target="_blank" title="goes to anothe html file">
+        link to the other html file
+    </a>
+<br><br><hr>    <br>
+
+    <a href="https://www.google.com/"> click on the image surround by a href tag to redirect
+    <img src="shark.jpg"  height="200px" width="200px">
+    <img src="shar.jpg" alt="alt tab under img src says what the image could be if it doesnt load">
+    </a>
+
+
+
+
+    <p> favicon is the icon that appears on the chrome tab <br>
+    we use link tag in head</p>
+
+<hr>
+
+
+
+    <p>now we are doing text formatiing</p>
+    <p>now we are doing <b> bold text</b> formatiing</p>
+    <p>now we are doing <i>italic text </i>formatiing</p>
+    <p>now we are doing <u> underline</u> text formatiing</p>
+    <p>now we are doing <del>deleted</del>text formatiing</p>
+    <p>now we are doing <big>big</big>text formatiing</p>
+    <p>now we are doing <small>small</small>text formatiing</p>
+    <p>now we are doing <sub> subscript</sub>text formatiing</p>
+    <p>now we are doing <sup>superscript</sup>text formatiing</p>
+    <p>now we are doing <tt> monospace</tt>text formatiing</p>
+    <p> this is <mark style="background-color: lightgreen;"> mark </mark> text</p>
+   
+
+
+
+    <hr>
+
+
+    <h1> span text allows us to use <span style="color: blue;"> in line css</span></h1>
+
+    <p> div text allows to use <div style="background-color: palevioletred;"> group styling</div></p>
+
+    <hr>
+
+    <ul> unordered list
+        <li> li 1</li>
+        <li> li 2</li>
+        <ul>
+            <li> nested li 1</li>
+        </ul>
+    </ul>
+
+<hr>
+
+    <ol> ordered list
+        <li> li 1</li>
+        <li> li 2</li>
+        <ol>
+            <li> nested li 1</li>
+        </ol>
+    </ol>
+
+<hr>
+
+    <dl> description list
+        <dt>Description title</dt>
+        <dd>description data</dd>
+    </dl>
+
+    <hr>
+
+
+    <button> this is a button</button>
+    
+
+<hr>
+
+
+
+<h1> Contact Form </h1>
+<form action=sendsdatahere.html method="post">
+
+
+<fieldset> fieldset creates a box 
+<legend> Contact Information </legend>
+<label> Name:</label>
+<input type="text" required ><br><br>
+<label> Email:</label>
+<input type="email" required ><br><br>
+<label> Message:</label><br>
+<textarea rows="4" cols="50" required></textarea><br><br>
+</fieldset>
+<input type="submit" value="submit">
+</form>
+<h1> Fill the following details</h1>
+<fieldset>
+<legend> Personal Information </legend>
+<label> Name:</label>
+<input type="text" required ><br><br>
+<label> Email:</label>
+<input type="email" required ><br><br>
+<label> Age:</label>
+<input type="email" required ><br><br>
+Gender:<br>
+<form>
+<input type="radio"> Male <br>
+<input type="radio"> Female <br>
+</form>
+<form>
+Date of birth:
+<input type="date"> <br><br>
+Favorite color:
+<input type="color"> <br><br>
+</form>
+</fieldset>
+<fieldset>
+<legend> Additonal Information </legend>
+<form>
+<label> Website URL:</label>
+<input type="url" ><br>
+</form>
+<label> Comment:</label><br>
+<textarea rows="4" cols="50" required></textarea><br><br>
+<form>
+<label> Upload file:</label>
+<input type="file">
+</form>
+<form>
+Subscribe to newsletter
+<input type="checkbox" >
+</form>
+<form>
+<select name="country" id="country">
+<option value="India">India</option>
+<option value="Australia">Australia</option>
+<option value="Japan">Japan</option>
+<option value="America">America</option>
+</select>
+</form>
+</fieldset>
+<input type="submit" value="Submit"/>
+<footer>
+<p> ©2025 Example Company. All rights reserved. </p>
+<p> Contact us at: <a href="#">support@example.com</a></p>
+</footer>
+
+<p> here goes password</p>
+
+<hr>
+
+
+
+<header style="background-color: lightcoral;"> 
+    <h1> this is my header</h1>
+    <a href> Home</a>
+    <a href=""> About</a>
+</header>
+
+
+
+<hr>
+
+
+<footer style="background-color: rgb(128, 231, 240);"> 
+    <h1> this is my footer</h1>
+    <a href> Home</a>
+    <a href=""> About</a>
+</footer>
+<input type="password" id="password"><br>
+
+
+
+<hr>
+
+
+
+<div id="shadow">
+    OKAY SHADOW
+
+</div>
+
+
+
+<div class="container" >
+<div id="box">
+</div>
+</div>
+
+
+<div class="boxa" id="box1"></div>
+<div class="boxa" id="box2"></div>
+
+
+<div class="calculator">
+    <div class="display" id="display">0</div>
+    <table>
+        <tr>
+            <td><button class="key">7</button></td>
+            <td><button class="key">8</button></td>
+            <td><button class="key">9</button></td>
+            <td><button class="key operator">/</button></td>
+        </tr>
+        <tr>
+            <td><button class="key">4</button></td>
+            <td><button class="key">5</button></td>
+            <td><button class="key">6</button></td>
+            <td><button class="key operator">*</button></td>
+        </tr>
+        <tr>
+            <td><button class="key">1</button></td>
+            <td><button class="key">2</button></td>
+            <td><button class="key">3</button></td>
+            <td><button class="key operator">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="key">0</button></td>
+            <td><button class="key">.</button></td>
+            <td><button class="key operator">+</button></td>
+            <td><button class="key equal">=</button></td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+</body>
+</html>

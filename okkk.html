@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover Rotation</title>
+    <style>
+        /* Container to hold the image and the box */
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Blue box behind the image */
+        .box {
+            position: absolute;
+            width: 100%; /* Same size as the image */
+            height: 100%;
+            background-color: blue;
+            transform-origin: center;
+            transition: transform 0.5s ease-in-out;
+            z-index: 1; /* Behind the image */
+        }
+
+        /* Image placed above the blue box */
+        .image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2; /* Ensures the image is on top */
+        }
+
+        /* Make the blue box pop out with 2D rotation while keeping full square visible */
+        .container:hover .box {
+            transform: rotate(45deg) translate(14px, 14px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <img src="mint.jpg" alt="Image" class="image">
+    </div>
+</body>
+</html>

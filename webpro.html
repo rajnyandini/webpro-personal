@@ -1,0 +1,116 @@
+// App.jsx
+import React from "react";
+import "./App.css";
+
+function App() {
+  return (
+    <div className="container">
+      <img src="/picture.jpg" alt="A beautiful view" className="image" />
+      <p className="paragraph">This is a beautiful picture from the public folder.</p>
+      <textarea className="textbox" placeholder="Enter your text here..."></textarea>
+    </div>
+  );
+}
+
+export default App;
+
+/* App.css */
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.paragraph {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.textbox {
+  width: 80%;
+  height: 100px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Index.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Index.js */
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+/* Main.jsx */
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+
+
+1️⃣ Set Up Your React Project
+If you haven't already set up a React project, create one using:
+
+node -v
+npm -v
+npx create-react-app my-app
+Then, navigate into the project folder:
+
+
+cd my-app
+2️⃣ Replace Files
+Replace the contents of your src folder with the files I provided (App.jsx, App.css, index.css, index.js, and main.jsx).
+
+3️⃣ Add the Image to Public Folder
+Place your picture.jpg inside the public folder.
+
+4️⃣ Install Dependencies
+Ensure you're in the project folder and install dependencies:
+
+
+npm install
+5️⃣ Start the React App
+Run the following command:
+
+
+npm start
+This will open your React app in the browser at http://localhost:3000/.
+
+6️⃣ Optional: Use main.jsx Instead of index.js
+If you want to use main.jsx, rename index.js to something else (e.g., index_old.js) and rename main.jsx to index.js.
